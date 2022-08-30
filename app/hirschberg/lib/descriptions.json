@@ -1,0 +1,6 @@
+{
+    "title" : "# Distributed Algorithms",
+    "election" : "When working with Distributed Systems we want to achieve truly distributed solutions. There might not be a central component that regulates the whole network. Sometimes, however, a system might need to be assigned priority over other systems. In a truly distributed system the priority of each component is not globally known. Luckely there exist selection algorithms to overcome this issue.",
+    "subtitle" : "## Hirschberg's and Sinclair's election algorithm in a bidirectional ring",
+    "explanation" : "This algorithm works for a bidirectional ring, meaning that each component can connect to two neighbours. No direct broadcasting is available. We assign each component with a random id indicating its priority. The algorithm then works in phases trying to figure out if it has the highest priority in its neighbourhood. Every phase the highest components of the phase try to extend their neighbourhood. In the end only one component remains."
+}

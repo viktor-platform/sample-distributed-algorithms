@@ -1,0 +1,6 @@
+*.pyc
+.vscode
+venv
+dev-requirements.txt
+run_code_quality_tools.sh
+pyproject.toml
