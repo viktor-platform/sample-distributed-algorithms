@@ -1,3 +1,4 @@
+![](https://img.shields.io/badge/SDK-v13.2.1-blue) <Please check version is the same as specified in requirements.txt>
 # Distributed Algorithms
 
 When working with Distributed Systems we want to achieve truly distributed solutions. There might not be a central component that regulates the whole network. Sometimes, however, a system might need to be assigned priority over other systems. In a truly distributed system, the priority of each component is not globally known. Luckily there exist selection algorithms to overcome this issue.
