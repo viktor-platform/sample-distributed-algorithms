@@ -9,10 +9,18 @@ from viktor.core import ViktorController
 from viktor.views import PlotlyResult
 from viktor.views import PlotlyView
 
-from .helper import add_initial_frames
-from .helper import add_missing_frames
-from .hirschberg_algorithm import run_hirschberg_sinclair_algorithm
-from .parametrization import AppParametrization
+from viktor.parametrization import NumberField
+from viktor.parametrization import Parametrization
+from viktor.parametrization import Text
+
+from helper import add_initial_frames
+from helper import add_missing_frames
+from hirschberg_algorithm import run_hirschberg_sinclair_algorithm
+
+
+import json
+from pathlib import Path
+
 
 
 def points_in_circum(n=100) -> List[Union[float, float]]:
@@ -86,6 +94,18 @@ def get_network_figure(df: pd.DataFrame, mode: str) -> px.scatter:
 
     return fig
 
+
+
+with open(Path(__file__).parent / "description.json") as f:
+    DESC = json.load(f)
+
+
+class AppParametrization(Parametrization):
+    title = Text(DESC["title"])
+    election = Text(DESC["election"])
+    subtitle = Text(DESC["subtitle"])
+    explanation = Text(DESC["explanation"])
+    number_of_nodes = NumberField("Number of nodes", default=3, min=3, max=99, step=2)
 
 class Controller(ViktorController):
     label = "Hirschberg and Sinclair"

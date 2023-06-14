@@ -1,6 +1,6 @@
 import pandas as pd
 
-from .hirschberg_algorithm import State
+from hirschberg_algorithm import State
 
 
 def add_initial_frames(df: pd.DataFrame) -> pd.DataFrame:
