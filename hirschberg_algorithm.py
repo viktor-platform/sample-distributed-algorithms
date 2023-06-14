@@ -8,9 +8,9 @@ import Pyro4
 
 from viktor.core import progress_message
 
-from .pyro import Process
-from .pyro import start_daemon
-from .pyro import start_name_server
+from pyro import Process
+from pyro import start_daemon
+from pyro import start_name_server
 
 
 class State(Enum):
