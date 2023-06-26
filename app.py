@@ -8,6 +8,8 @@ import plotly.express as px
 from viktor.core import ViktorController
 from viktor.views import PlotlyResult
 from viktor.views import PlotlyView
+from viktor.views import WebResult
+from viktor.views import WebView
 
 from viktor.parametrization import NumberField
 from viktor.parametrization import Parametrization
@@ -124,3 +126,11 @@ class Controller(ViktorController):
         df = run_hirschberg_sinclair_algorithm(params.number_of_nodes)
         fig = get_network_figure(df, "messages")
         return PlotlyResult(fig.to_json())
+    
+    @WebView("What's next?", duration_guess=1)
+    def whats_next(self, params, **kwargs):
+        """Initiates the process of rendering the "What's next" tab."""
+        html_path = Path(__file__).parent / "next_step.html"
+        with html_path.open(encoding="utf-8") as _file:
+            html_string = _file.read()
+        return WebResult(html=html_string)
